@@ -40,7 +40,7 @@ public class MainSystem {
 			System.out.println("5.更新");
 			System.out.println("6.削除");
 			System.out.println("7.終了");
-			System.out.print(ConstantMsg.MSG_MENU);
+			System.out.print(ConstantMsg.MSG_CHOOSE_MENU_NO);
 
 			// メニュー番号の入力
 			String menuNoStr = br.readLine();
@@ -109,6 +109,6 @@ public class MainSystem {
 
 			}
 		} while (menuNo != 7);
-		System.out.println(ConstantMsg.MSG_MENU_END);
+		System.out.println(ConstantMsg.MSG_SHUT_DOWN);
 	}
 }

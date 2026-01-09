@@ -63,7 +63,7 @@ public class DBController {
 			}
 
 			// レコードを出力
-			System.out.println(ConstantMsg.MSG_COLUMN);
+			System.out.println(ConstantMsg.MSG_RESULT_HEADER);
 			while (resultSet.next()) {
 				employee = new Employee();
 				department = new Department();
@@ -135,7 +135,7 @@ public class DBController {
 				return;
 			}
 
-			System.out.println(ConstantMsg.MSG_COLUMN);
+			System.out.println(ConstantMsg.MSG_RESULT_HEADER);
 			while (resultSet.next()) {
 				employee = new Employee();
 				department = new Department();
@@ -203,7 +203,7 @@ public class DBController {
 				return;
 			}
 
-			System.out.println(ConstantMsg.MSG_COLUMN);
+			System.out.println(ConstantMsg.MSG_RESULT_HEADER);
 			while (resultSet.next()) {
 				employee = new Employee();
 				department = new Department();
