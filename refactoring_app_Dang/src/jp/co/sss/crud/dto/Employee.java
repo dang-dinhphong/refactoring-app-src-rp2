@@ -1,22 +1,29 @@
 package jp.co.sss.crud.dto;
 
+import jp.co.sss.crud.util.ConstantMsg;
 import jp.co.sss.crud.util.ConstantValue;
 
+/**
+ * 社員テーブルDTOクラス
+ */
 public class Employee {
 
+	/** 社員情報 */
 	private Integer empId;
 	private String empName;
 	private int gender;
 	private String birthday;
-	private Department department;
 
+	/** 外部参照（部署テーブル） */
+	private Department department;
 	private String deptName;
 
+	/** 上記フィールドの取得・代入用のゲッターセッター */
 	public void setEmpId(Integer empId) {
 		this.empId = empId;
 	}
 
-	public int getEmpId() {
+	public Integer getEmpId() {
 		return empId;
 	}
 
@@ -64,28 +71,18 @@ public class Employee {
 
 	}
 
-	public Employee(Integer empId, String empName, int gender, String birthday, String deptName,
-			Department department) {
-		super();
-		this.empId = empId;
-		this.empName = empName;
-		this.gender = gender;
-		this.birthday = birthday;
-		this.deptName = deptName;
-		this.department = department;
-	}
-
+	/** Stringクラスのオーバライドメソッド、取得した値をレコード毎に返す */
 	@Override
 	public String toString() {
 		String gender_ja = "";
-		if (this.gender == 1) {
-			gender_ja = ConstantValue.MALE;
-		} else if (this.gender == 2) {
-			gender_ja = ConstantValue.FEMALE;
-		} else if (this.gender == 0) {
-			gender_ja = ConstantValue.UNASWERED;
-		} else if (this.gender == 9) {
-			gender_ja = ConstantValue.OTHER;
+		if (this.gender == ConstantValue.GENDER_MALE_NO) {
+			gender_ja = ConstantMsg.GENDER_MALE;
+		} else if (this.gender == ConstantValue.GENDER_FEMALE_NO) {
+			gender_ja = ConstantMsg.GENDER_FEMALE;
+		} else if (this.gender == ConstantValue.GENDER_UNANSWERED_NO) {
+			gender_ja = ConstantMsg.GENDER_UNANSWERED;
+		} else if (this.gender == ConstantValue.GENDER_OTHER_NO) {
+			gender_ja = ConstantMsg.GENDER_OTHER;
 		}
 
 		return empId + "\t" + empName + "\t" + gender_ja + "\t" + birthday

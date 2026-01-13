@@ -38,6 +38,14 @@ public class ConstantSQL {
 	/** DB接続用パスワード */
 	public static final String PASSWORD = "systemsss";
 
+	/** DB用レコード */
+	public static final String RECORD_EMP_ID = "emp_id";
+	public static final String RECORD_EMP_NAME = "emp_name";
+	public static final String RECORD_DEPT_ID = "dept_id";
+	public static final String RECORD_DEPT_NAME = "dept_name";
+	public static final String RECORD_GENDER = "gender";
+	public static final String RECORD_BIRTHDAY = "birthday";
+
 	// ***** SQL文 *****
 
 	/** 全件表示 */
