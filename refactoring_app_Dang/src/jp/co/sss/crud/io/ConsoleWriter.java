@@ -48,7 +48,6 @@ public class ConsoleWriter {
 
 	/**
 	 * 検索レコードの表示用
-	 * レコード数が空でない場合はレコードのヘッドに加えてレコードごとをコンソール出力
 	 * 
 	 * @param employees 社員レコード
 	 */

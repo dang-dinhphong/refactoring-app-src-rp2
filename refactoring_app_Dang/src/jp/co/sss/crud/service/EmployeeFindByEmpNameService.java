@@ -11,6 +11,9 @@ import jp.co.sss.crud.io.EmployeeEmpNameReader;
 import jp.co.sss.crud.io.IConsoleReader;
 import jp.co.sss.crud.util.ConstantMsg;
 
+/**
+ * 社員名検索サービスクラス
+ */
 public class EmployeeFindByEmpNameService implements IEmployeeService {
 
 	@Override

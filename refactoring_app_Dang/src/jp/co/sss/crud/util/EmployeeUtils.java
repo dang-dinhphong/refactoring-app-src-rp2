@@ -13,6 +13,9 @@ import jp.co.sss.crud.dto.Department;
 import jp.co.sss.crud.dto.Employee;
 import jp.co.sss.crud.exception.SystemErrorException;
 
+/**
+ * 共通処理を行うクラス
+ */
 public class EmployeeUtils {
 
 	/**
@@ -22,6 +25,13 @@ public class EmployeeUtils {
 
 	}
 
+	/**
+	 * ResultSetからレコード抽出
+	 * 
+	 * @param resultSet
+	 * @return 社員レコードリスト
+	 * @throws SystemErrorException 例外処理をまとめた独自例外クラス
+	 */
 	public static List<Employee> resultSetToEmployee(ResultSet resultSet) throws SystemErrorException {
 		try {
 			if (resultSet == null || !resultSet.isBeforeFirst()) {
@@ -50,6 +60,15 @@ public class EmployeeUtils {
 		}
 	}
 
+	/**
+	 * DTO（Employee + Department）に値セット
+	 * 
+	 * @param empName 社員名
+	 * @param gender 性別
+	 * @param birthday 生年月日
+	 * @param deptId 部署ID
+	 * @return 社員テーブルDTO（Employee）のオブジェクト
+	 */
 	public static Employee setDTO(String empName, int gender, String birthday, int deptId) {
 		Employee employee = new Employee();
 		Department department = new Department();
@@ -62,6 +81,16 @@ public class EmployeeUtils {
 		return employee;
 	}
 
+	/**
+	 * DTO（Employee + Department）に値セット
+	 * 
+	 * @param empId 社員ID
+	 * @param empName 社員名
+	 * @param gender 性別
+	 * @param birthday 生年月日
+	 * @param deptId 部署ID
+	 * @return 社員テーブルDTO（Employee）のオブジェクト
+	 */
 	public static Employee setDTO(int empId, String empName, int gender, String birthday, int deptId) {
 		Employee employee = new Employee();
 		Department department = new Department();
@@ -75,7 +104,13 @@ public class EmployeeUtils {
 		return employee;
 	}
 
-	public static void bindPreparedStatement(PreparedStatement preparedStatement, Employee employee)
+	/**
+	 * PreparedStatementに値セット
+	 * @param preparedStatement
+	 * @param employee 社員テーブルDTOのオブジェクト
+	 * @throws SystemErrorException 独自例外
+	 */
+	public static void setPreparedStatement(PreparedStatement preparedStatement, Employee employee)
 			throws SystemErrorException {
 		if (preparedStatement == null || employee == null) {
 			return;

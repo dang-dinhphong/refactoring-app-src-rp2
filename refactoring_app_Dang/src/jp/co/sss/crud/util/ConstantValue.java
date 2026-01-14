@@ -1,5 +1,8 @@
 package jp.co.sss.crud.util;
 
+/**
+ * マジックナンバーを定数化クラス
+ */
 public class ConstantValue {
 	/** 選択メニュー番号 */
 	public static final int MENU_SELECT_ALL = 1;
@@ -32,6 +35,7 @@ public class ConstantValue {
 	public static final int EMP_NAME_CHAR_MIN = 1;
 	public static final int EMP_NAME_CHAR_MAX = 30;
 
+	/** 更新・削除処理に失敗した時に用いた定数 */
 	public static final int FAILED = 0;
 
 }

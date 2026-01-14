@@ -8,7 +8,7 @@ import jp.co.sss.crud.util.ConstantValue;
  */
 public class Employee {
 
-	/** 社員情報 */
+	/** 社員情報フィールド */
 	private Integer empId;
 	private String empName;
 	private int gender;

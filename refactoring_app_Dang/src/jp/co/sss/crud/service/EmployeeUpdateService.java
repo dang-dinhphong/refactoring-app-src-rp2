@@ -15,11 +15,13 @@ import jp.co.sss.crud.util.ConstantMsg;
 import jp.co.sss.crud.util.ConstantValue;
 import jp.co.sss.crud.util.EmployeeUtils;
 
+/**
+ * 既存レコードの更新サービスクラス
+ */
 public class EmployeeUpdateService implements IEmployeeService {
 
 	@Override
 	public void execute() throws SystemErrorException, IllegalInputException {
-		// TODO 自動生成されたメソッド・スタブ
 		IConsoleReader reader = new EmployeeEmpIdReader();
 		EmployeeDAO employeeDAO = new EmployeeDAO();
 

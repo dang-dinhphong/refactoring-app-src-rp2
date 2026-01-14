@@ -20,7 +20,6 @@ public class MainSystem {
 	/**
 	 * 社員管理システムを起動
 	 * 
-	 * fix:例外をmain メソッド内で処理する
 	 * 入力したメニュー番号によるサービスをインスタンス生成し機能実行する
 	 * 
 	 * @param args
@@ -37,11 +36,11 @@ public class MainSystem {
 				if (service != null) {
 					service.execute();
 				}
-			} catch (IllegalInputException e) {
+			} catch (IllegalInputException e) {//ユーザ入力ミスをcatchしもう一度やり直す
 				System.out.println(e.getMessage());
 				System.out.println();
 				continue;
-			} catch (SystemErrorException e) {
+			} catch (SystemErrorException e) {//システム側のエラーが発生したら終了
 				System.out.println(e.getMessage());
 				e.printStackTrace();
 				break;

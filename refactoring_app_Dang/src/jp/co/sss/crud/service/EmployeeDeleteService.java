@@ -9,14 +9,15 @@ import jp.co.sss.crud.io.IConsoleReader;
 import jp.co.sss.crud.util.ConstantMsg;
 import jp.co.sss.crud.util.ConstantValue;
 
+/**
+ * 削除サービスクラス
+ */
 public class EmployeeDeleteService implements IEmployeeService {
 
 	@Override
 	public void execute() throws SystemErrorException, IllegalInputException {
-		// TODO 自動生成されたメソッド・スタブ
 		IConsoleReader reader = new EmployeeEmpIdReader();
 		EmployeeDAO employeeDAO = new EmployeeDAO();
-
 		System.out.println(ConstantMsg.DELETE_INPUT_EMP_ID);
 		int empId = (int) reader.input();
 		Integer isSuccess = employeeDAO.delete(empId);

@@ -1,5 +1,8 @@
 package jp.co.sss.crud.util;
 
+/**
+ * メッセージ定数化クラス
+ */
 public class ConstantMsg {
 	private ConstantMsg() {
 
@@ -84,6 +87,7 @@ public class ConstantMsg {
 	public static final String REGEX_DEPT_ID = "^[1-3１-３]{1}$";
 	/** 性別正規表現 */
 	public static final String REGEX_GENDER = "^|[0129０１２９]{1}$";
+	/** 日付正規表現（SimpleDateFormat用） */
 	public static final String REGEX_DATE = "yyyy/MM/dd";
 
 }

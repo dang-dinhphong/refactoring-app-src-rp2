@@ -17,23 +17,12 @@ public class EmployeeDAO implements IEmployeeDAO {
 	 */
 	@Override
 	public List<Employee> findAll() throws SystemErrorException {
-		//		try (
-		//				Connection connection = DBManager.getConnection();
-		//				PreparedStatement preparedStatement = connection.prepareStatement(ConstantSQL.SQL_ALL_SELECT);
-		//				ResultSet resultSet = preparedStatement.executeQuery()) {
-		//
-		//			return EmployeeUtils.resultSetToEmployee(resultSet);
-		//
-		//		} catch (ClassNotFoundException |SQLException e) {
-		//			throw new SystemErrorException(ConstantMsg.MSG_SYS_ERROR, e);
-		//		}
 		return DBHelper.execute(connect -> {
 			try (PreparedStatement preparedStatement = connect.prepareStatement(ConstantSQL.SQL_ALL_SELECT);
 					ResultSet resultSet = preparedStatement.executeQuery()) {
 				return EmployeeUtils.resultSetToEmployee(resultSet);
 			}
 		});
-
 	}
 
 	/**
@@ -41,24 +30,6 @@ public class EmployeeDAO implements IEmployeeDAO {
 	 */
 	@Override
 	public List<Employee> findByEmployeeName(String searchName) throws SystemErrorException {
-
-		//		try {
-		//			Connection connection = DBManager.getConnection();
-		//			StringBuffer sqlBuffer = new StringBuffer(ConstantSQL.SQL_SELECT_BASIC);
-		//			sqlBuffer.append(ConstantSQL.SQL_SELECT_BY_EMP_NAME);
-		//
-		//			PreparedStatement preparedStatement = connection.prepareStatement(sqlBuffer.toString());
-		//			preparedStatement.setString(ConstantValue.RESULT_NO_ONE, "%" + searchName + "%");
-		//			ResultSet resultSet = preparedStatement.executeQuery();
-		//			try (
-		//					connection;
-		//					preparedStatement;
-		//					resultSet;) {
-		//				return EmployeeUtils.resultSetToEmployee(resultSet);
-		//			}
-		//		} catch (ClassNotFoundException | SQLException e) {
-		//			throw new SystemErrorException(ConstantMsg.MSG_SYS_ERROR, e);
-		//		}
 		return DBHelper.execute(connect -> {
 			String sql = ConstantSQL.SQL_SELECT_BASIC + ConstantSQL.SQL_SELECT_BY_EMP_NAME;
 			try (PreparedStatement preparedStatement = connect.prepareStatement(sql)) {
@@ -75,23 +46,6 @@ public class EmployeeDAO implements IEmployeeDAO {
 	 */
 	@Override
 	public List<Employee> findByDeptId(int deptId) throws SystemErrorException {
-
-		//		try {
-		//			Connection connection = DBManager.getConnection();
-		//			StringBuffer sqlBuffer = new StringBuffer(ConstantSQL.SQL_SELECT_BASIC);
-		//			sqlBuffer.append(ConstantSQL.SQL_SELECT_BY_DEPT_ID);
-		//			PreparedStatement preparedStatement = connection.prepareStatement(sqlBuffer.toString());
-		//			preparedStatement.setInt(ConstantValue.RESULT_NO_ONE, deptId);
-		//			ResultSet resultSet = preparedStatement.executeQuery();
-		//			try (
-		//					connection;
-		//					preparedStatement;
-		//					resultSet;) {
-		//				return EmployeeUtils.resultSetToEmployee(resultSet);
-		//			}
-		//		} catch (ClassNotFoundException | SQLException e) {
-		//			throw new SystemErrorException(ConstantMsg.MSG_SYS_ERROR, e);
-		//		}
 		return DBHelper.execute(connect -> {
 			String sql = ConstantSQL.SQL_SELECT_BASIC + ConstantSQL.SQL_SELECT_BY_DEPT_ID;
 			try (PreparedStatement preparedStatement = connect.prepareStatement(sql)) {
@@ -108,20 +62,11 @@ public class EmployeeDAO implements IEmployeeDAO {
 	 */
 	@Override
 	public void insert(Employee employee) throws SystemErrorException {
-
-		//		try (
-		//				Connection connection = DBManager.getConnection();
-		//				PreparedStatement preparedStatement = connection.prepareStatement(ConstantSQL.SQL_INSERT)) {
-		//			EmployeeUtils.bindPreparedStatement(preparedStatement, employee);
-		//			preparedStatement.executeUpdate();
-		//		} catch (ClassNotFoundException | SQLException e) {
-		//			throw new SystemErrorException(ConstantMsg.MSG_SYS_ERROR, e);
-		//		}
 		DBHelper.execute(connect -> {
 			try (PreparedStatement preparedStatement = connect.prepareStatement(ConstantSQL.SQL_INSERT)) {
-				EmployeeUtils.bindPreparedStatement(preparedStatement, employee);
+				EmployeeUtils.setPreparedStatement(preparedStatement, employee);
 				preparedStatement.executeUpdate();
-				return null; // voidの代わり
+				return null;
 			}
 		});
 
@@ -132,19 +77,9 @@ public class EmployeeDAO implements IEmployeeDAO {
 	 */
 	@Override
 	public Integer update(Employee employee) throws SystemErrorException {
-
-		//		try (
-		//				Connection connection = DBManager.getConnection();
-		//				PreparedStatement preparedStatement = connection.prepareStatement(ConstantSQL.SQL_UPDATE)) {
-		//			EmployeeUtils.bindPreparedStatement(preparedStatement, employee);
-		//			return preparedStatement.executeUpdate();
-		//
-		//		} catch (ClassNotFoundException | SQLException e) {
-		//			throw new SystemErrorException(ConstantMsg.MSG_SYS_ERROR, e);
-		//		}
 		return DBHelper.execute(connect -> {
 			try (PreparedStatement preparedStatement = connect.prepareStatement(ConstantSQL.SQL_UPDATE)) {
-				EmployeeUtils.bindPreparedStatement(preparedStatement, employee);
+				EmployeeUtils.setPreparedStatement(preparedStatement, employee);
 				return preparedStatement.executeUpdate();
 			}
 		});
@@ -156,15 +91,6 @@ public class EmployeeDAO implements IEmployeeDAO {
 	 */
 	@Override
 	public Integer delete(Integer empId) throws SystemErrorException {
-
-		//		try (
-		//				Connection connection = DBManager.getConnection();
-		//				PreparedStatement preparedStatement = connection.prepareStatement(ConstantSQL.SQL_DELETE)) {
-		//			preparedStatement.setInt(ConstantValue.RESULT_NO_ONE, empId);
-		//			return preparedStatement.executeUpdate();
-		//		} catch (ClassNotFoundException | SQLException e) {
-		//			throw new SystemErrorException(ConstantMsg.MSG_SYS_ERROR, e);
-		//		}
 		return DBHelper.execute(connect -> {
 			try (PreparedStatement preparedStatement = connect.prepareStatement(ConstantSQL.SQL_DELETE)) {
 				preparedStatement.setInt(ConstantValue.RESULT_NO_ONE, empId);

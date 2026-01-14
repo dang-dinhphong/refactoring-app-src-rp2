@@ -8,11 +8,13 @@ import jp.co.sss.crud.exception.IllegalInputException;
 import jp.co.sss.crud.exception.SystemErrorException;
 import jp.co.sss.crud.io.ConsoleWriter;
 
+/**
+ * 全件検索サービスクラス
+ */
 public class EmployeeAllFindService implements IEmployeeService {
 
 	@Override
 	public void execute() throws SystemErrorException, IllegalInputException {
-		// TODO 自動生成されたメソッド・スタブ
 		EmployeeDAO employeeDAO = new EmployeeDAO();
 		List<Employee> employeesList = employeeDAO.findAll();
 		ConsoleWriter.showEmployeesList(employeesList);
