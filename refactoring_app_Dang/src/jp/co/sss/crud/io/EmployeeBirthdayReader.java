@@ -20,11 +20,9 @@ public class EmployeeBirthdayReader implements IConsoleReader {
 
 	/**
 	 * 入力した文字列の値が適正かどうかによる実行処理
-	 * 
 	 */
 	@Override
 	public boolean isValid(String inputString) {
-		// TODO 自動生成されたメソッド・スタブ
 		SimpleDateFormat sdf = new SimpleDateFormat(ConstantMsg.REGEX_DATE);
 		sdf.setLenient(false);
 		try {
@@ -37,7 +35,6 @@ public class EmployeeBirthdayReader implements IConsoleReader {
 
 	@Override
 	public boolean isParseInt() {
-		// TODO 自動生成されたメソッド・スタブ
 		return false;
 	}
 
