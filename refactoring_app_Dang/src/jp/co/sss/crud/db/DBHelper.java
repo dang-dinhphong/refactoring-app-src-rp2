@@ -10,7 +10,8 @@ import jp.co.sss.crud.util.ConstantMsg;
  */
 public class DBHelper {
 	/**
-	 * ラムダ式（DAOの処理）を受け取るためのインターフェース
+	 * ラムダ式（DAOの処理）を受け取るための関数型インターフェース
+	 * 
 	 */
 	@FunctionalInterface
 	public interface SQLProcess<T> {
@@ -19,8 +20,9 @@ public class DBHelper {
 	}
 
 	/**
-	 * Connectionの取得、処理の実行、例外の変換、クローズをすべて行うメソッド
-	 * try()でメモリリーク防止（close()処理を自動化）
+	 * Connectionの取得、処理の実行、例外の変換、クローズをすべて行う関数型メソッド
+	 * <T>：型のパラメータの宣言、T：戻り値の型
+	 * try()でメモリリーク防止（close()処理は必ず実行される）
 	 */
 	public static <T> T execute(SQLProcess<T> process) throws SystemErrorException {
 		try (Connection connect = DBManager.getConnection()) {

@@ -18,7 +18,6 @@ public class EmployeeFindByEmpNameService implements IEmployeeService {
 
 	@Override
 	public void execute() throws SystemErrorException, IllegalInputException {
-		// TODO 自動生成されたメソッド・スタブ
 		IConsoleReader reader = new EmployeeEmpNameReader();
 		EmployeeDAO employeeDAO = new EmployeeDAO();
 		System.out.println(ConstantMsg.INPUT_EMP_NAME);

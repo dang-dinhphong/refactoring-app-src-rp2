@@ -36,11 +36,11 @@ public class MainSystem {
 				if (service != null) {
 					service.execute();
 				}
-			} catch (IllegalInputException e) {//ユーザ入力ミスをcatchしもう一度やり直す
+			} catch (IllegalInputException e) {//ユーザの入力ミスをcatchし、やり直す
 				System.out.println(e.getMessage());
 				System.out.println();
 				continue;
-			} catch (SystemErrorException e) {//システム側のエラーが発生したら終了
+			} catch (SystemErrorException e) {//システム側のエラーが発生した場合は終了
 				System.out.println(e.getMessage());
 				e.printStackTrace();
 				break;

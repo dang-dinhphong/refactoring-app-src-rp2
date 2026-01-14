@@ -10,7 +10,6 @@ public class ConstantMsg {
 
 	/** メニューメッセージ表示 */
 	public static final String MSG_CHOOSE_MENU_NO = "メニュー番号を入力してください：";
-
 	public static final String MSG_MENU_SYSTEM_NAME = "=== 社員管理システム ===";
 	public static final String MSG_MENU_FIND_ALL = "1.全件表示";
 	public static final String MSG_MENU_FIND_BY_EMP_NAME = "2.社員名検索";
@@ -19,7 +18,6 @@ public class ConstantMsg {
 	public static final String MSG_MENU_UPDATE = "5.更新";
 	public static final String MSG_MENU_DELETE = "6.削除";
 	public static final String MSG_MENU_SHUT_DOWN = "7.終了";
-
 	public static final String MSG_SHUT_DOWN = "システムを終了します。";
 
 	/** 出力用レコードのヘッド */
@@ -39,13 +37,9 @@ public class ConstantMsg {
 	public static final String GENDER_FEMALE = "女性";
 	public static final String GENDER_OTHER = "その他";
 	public static final String GENDER_UNANSWERED = "回答なし";
-
 	public static final String INPUT_BIRTHDAY = "生年月日(西暦年/月/日):";
 
 	public static final String INPUT_DEPT_ID = "部署ID(1:営業部、2:経理部、3:総務部)：";
-	public static final String DEPT_SALES = "営業部";
-	public static final String DEPT_ACCOUNTING = "経理部";
-	public static final String DEPT_GA = "総務部";
 
 	public static final String MSG_CREATE_COMPLETE = "社員情報を登録しました";
 

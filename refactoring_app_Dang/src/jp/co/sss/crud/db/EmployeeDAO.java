@@ -14,6 +14,10 @@ public class EmployeeDAO implements IEmployeeDAO {
 
 	/**
 	 * 全ての社員情報を検索
+	 * 
+	 * return Connectionの取得、処理の実行、例外の変換、クローズを行うメソッド実行
+	 * return EmployeeUtils.resultSetToEmployee(resultSet) 社員情報の全レコード
+	 * 
 	 */
 	@Override
 	public List<Employee> findAll() throws SystemErrorException {
@@ -27,6 +31,10 @@ public class EmployeeDAO implements IEmployeeDAO {
 
 	/**
 	 * 社員名に該当する社員情報を検索
+	 * 
+	 * return Connectionの取得、処理の実行、例外の変換、クローズを行うメソッド実行
+	 * return EmployeeUtils.resultSetToEmployee(resultSet) 入力した社員名による社員情報の全レコード
+	 *  
 	 */
 	@Override
 	public List<Employee> findByEmployeeName(String searchName) throws SystemErrorException {
@@ -43,6 +51,9 @@ public class EmployeeDAO implements IEmployeeDAO {
 
 	/**
 	 * 部署IDに該当する社員情報を検索
+	 * 
+	 * return Connectionの取得、処理の実行、例外の変換、クローズを行うメソッド実行
+	 * return EmployeeUtils.resultSetToEmployee(resultSet) 入力した部署IDによる社員情報の全レコード
 	 */
 	@Override
 	public List<Employee> findByDeptId(int deptId) throws SystemErrorException {
@@ -59,6 +70,9 @@ public class EmployeeDAO implements IEmployeeDAO {
 
 	/**
 	 * 社員情報を1件登録
+	 * 
+	 * return Connectionの取得、処理の実行、例外の変換、クローズを行うメソッド実行
+	 * 戻り値の型はvoidであるため、メソッド自体はreturn句を私用しない・try()内はreturn null
 	 */
 	@Override
 	public void insert(Employee employee) throws SystemErrorException {
@@ -69,11 +83,12 @@ public class EmployeeDAO implements IEmployeeDAO {
 				return null;
 			}
 		});
-
 	}
 
 	/**
 	 * 社員情報を1件更新
+	 * 
+	 * return Connectionの取得、処理の実行、例外の変換、クローズを行うメソッド実行
 	 */
 	@Override
 	public Integer update(Employee employee) throws SystemErrorException {
@@ -83,11 +98,12 @@ public class EmployeeDAO implements IEmployeeDAO {
 				return preparedStatement.executeUpdate();
 			}
 		});
-
 	}
 
 	/**
 	 * 社員情報を1件削除
+	 * 
+	 * return Connectionの取得、処理の実行、例外の変換、クローズを行うメソッド実行
 	 */
 	@Override
 	public Integer delete(Integer empId) throws SystemErrorException {
@@ -97,6 +113,5 @@ public class EmployeeDAO implements IEmployeeDAO {
 				return preparedStatement.executeUpdate();
 			}
 		});
-
 	}
 }

@@ -75,14 +75,19 @@ public class Employee {
 	@Override
 	public String toString() {
 		String gender_ja = "";
-		if (this.gender == ConstantValue.GENDER_MALE_NO) {
+		switch (this.gender) {
+		case ConstantValue.GENDER_MALE_NO:
 			gender_ja = ConstantMsg.GENDER_MALE;
-		} else if (this.gender == ConstantValue.GENDER_FEMALE_NO) {
+			break;
+		case ConstantValue.GENDER_FEMALE_NO:
 			gender_ja = ConstantMsg.GENDER_FEMALE;
-		} else if (this.gender == ConstantValue.GENDER_UNANSWERED_NO) {
+			break;
+		case ConstantValue.GENDER_UNANSWERED_NO:
 			gender_ja = ConstantMsg.GENDER_UNANSWERED;
-		} else if (this.gender == ConstantValue.GENDER_OTHER_NO) {
+			break;
+		case ConstantValue.GENDER_OTHER_NO:
 			gender_ja = ConstantMsg.GENDER_OTHER;
+			break;
 		}
 
 		return empId + "\t" + empName + "\t" + gender_ja + "\t" + birthday
